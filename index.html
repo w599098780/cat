@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    body{ background: #7ac9df;}
+    .clear{clear: both;}
+    .mao_box{ position: relative; top:200px;}
+    .mao{ width: 400px; margin: 0 auto; position: relative;}
+    .header{ width: 400px; height: 340px; background: #F6F7F2;border-radius: 50% 50% 35% 35%; border: 2px solid #2e2e2e; position: relative;  overflow: hidden; z-index:1;}
+    .huawen{ width: 180px; height: 160px; position: absolute; background: #8D8D8D; top:0; left: 110px; border-radius: 0 0 50% 50%; overflow: hidden;}
+    .huawen_l{height: 160px;width: 90px; background:#F0AC6B;}
+    .erduo{ height: 120px; position: absolute; top:0; left: 0; width: 374px; }
+    .erduo > div:first-child{ width: 160px ; height: 200px; background: #f3f3f3; position: absolute; top:0; left: -12px; border: 2px solid #2e2e2e; transform: rotate(-15deg);
+        border-radius: 4% 80% 0 50%; transition: transform 1s,left 1s;}
+    .erduo > div:last-child{ width: 160px ; height: 200px; background: #f3f3f3; position: absolute;top:0; left:253px;  border: 2px solid #2e2e2e;transform: rotate(15deg);
+        border-radius: 80% 4% 50% 0;transition: transform 1s,right 1s;}
+    .eye{ height: 60px; width: 300px; position: absolute;top:187px ;left: 52px; z-index: 2; overflow:hidden;}
+    .yanquan{width: 100px; height: 100px; border: 2px solid #2e2e2e; border-radius: 50%; overflow: hidden; position: absolute;}
+    .yanzhu{ height: 50px; width: 30px; background: #000; margin-left: 35px;}
+    .yan_line{height: 100px; width: 180px;border-top: 2px solid #2e2e2e; position: absolute; top:47px; left:-43px; border-radius: 50%; margin-top: 50px;
+        margin-left: -40px;top:0; left: 0;background: #F6F7F2;}
+    .hong{ height: 28px; width: 70px; background: pink; position: absolute; top:34px; left: 18px; border-radius: 50%;opacity: 0;}
+    .eye_r .yanquan{right:0;}
+    .eye_r .yan_line{top:0; left:194px;position: absolute;}
+    .eye_r .hong{top:34px;position: absolute; left: 214px;}
+    .face_huawen{height: 80px; width: 380px; position: absolute; top:177px ;left: 11px; z-index: 3;}
+    .f_huawen> div:first-child{ width: 30px; height: 10px; border-top: 6px solid #E53941; border-radius: 30% 80% 20% 50%; transform: rotate(25deg); margin-left: 20px;  }
+    .f_huawen> div:nth-child(2){width: 20px; height: 6px;background-color: #E53941; border-radius: 50%; transform: rotate(25deg); margin-left: 20px;}
+    .f_huawen> div:nth-child(3){width: 32px; height: 10px;border-bottom: 4px solid #E53941; border-radius: 50%; transform: rotate(25deg); margin-left: 8px;}
+    .f_huawen> div:nth-child(4){width: 26px; height: 20px;border-bottom: 4px solid #E53941; border-radius: 50%; transform: rotate(17deg); margin-left: 22px; margin-top: 20px;}
+    .f_huawen> div:nth-child(5){width: 22px; height: 10px;border-bottom: 4px solid #E53941; border-radius: 50%; transform: rotate(-30deg); margin-left: 32px; margin-top: -8px;}
+    .f_huawen_r{ float: right; transform: rotateY(180deg); margin-top: -85px;}
+    .bizi{width: 30px; height: 36px; position:absolute; top:262px ; left:190px; z-index: 4; }
+    .bizi> div:first-child{width: 30px; height: 10px; border-bottom: 8px solid #2e2e2e; border-radius:0 0 50% 50%; margin-top: -10px; }
+    .ziba_box{ width: 200px; height: 36px;position: absolute; top:262px; left:108px; z-index: 5; overflow: hidden;}
+    .zuiba{ margin-top: -13px;}
+    .zuiba> div:nth-child(2){width: 50px; height: 40px; border-bottom: 4px solid #2e2e2e; border-left: 4px solid #2e2e2e; margin-left: 94px;border-radius: 40% 0% 20% 50%;}
+    .zuiba> div:nth-child(3){width: 50px; height: 40px; border-bottom: 4px solid #2e2e2e; border-right: 4px solid #2e2e2e;border-radius: 0% 40% 50% 20%;margin-top: -44px; margin-left: 45px;}
+  /*  hover的变化效果*/
+    .mao:hover .erduo > div:first-child{  left: -10px; transform: rotate(0deg);  border-radius: 4% 80% 0% 60%;}
+    .mao:hover .erduo > div:last-child{  right: -10px; transform: rotate(0deg);    border-radius: 80% 4% 60% 0%;}
+    .mao:hover .yanquan > div:first-child {
+        width:40px;
+        margin-left: 30px;
+        transition:all 1s;
+
+    }
+    /*眼睛浮动属性*/
+    .mao:hover .yan_line {
+        margin-top: 30px;
+        transition: margin-top 1s;
+    }
+
+    .mao:hover .hong {
+        top: 34px;
+        opacity: 0.8;
+        transition: opacity 0.5s ease-in 0.2s;
+    }
+    .mao:hover .zuiba > div:nth-child(2) {
+        border-radius: 50% 50% 50% 50%;
+        width: 40px;
+        transition:  border-radius  1s ;
+    }
+    .mao:hover .zuiba > div:nth-child(3) {
+
+        width: 40px;
+        margin-left: 55px;
+        border-radius: 50% 50% 50% 50%;
+        transition:  border-radius  1s;
+    }
+
+</style>
+<body>
+<div class="mao_box">
+    <div class="mao">
+        <div class="header">
+            <div class="huawen">
+                <div class="huawen_l"><!--头部花纹——左边橙色--></div>
+            </div>
+        </div>
+        <div class="erduo">
+            <div></div>
+            <div></div>
+        </div>
+        <div class="eye">
+            <div class="eye_l">
+                <div class="yanquan">
+                     <div class="yanzhu"></div>
+                </div>
+                <div class="yan_line"></div>
+                <div class="hong"></div>
+            </div>
+            <div class="eye_r">
+                <div class="yanquan">
+                    <div class="yanzhu"></div>
+                </div>
+                <div class="yan_line"></div>
+                <div class="hong"></div>
+            </div>
+        </div>
+        <div class="face_huawen">
+            <div class="f_huawen f_huawen_l">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="f_huawen f_huawen_r">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="bizi">
+            <div></div>
+
+        </div>
+        <div class="ziba_box">
+            <div class="zuiba">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
